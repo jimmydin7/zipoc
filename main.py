@@ -10,8 +10,8 @@ def repository_init():
     
     repo_path.mkdir()
 
-    project_name = input("Project name (press enter to leave empty): ").strip()
-    project_desc = input("Project description (press enter to leave empty): ").strip()
+    project_name = input("Project name > ").strip().replace(" ", "-")
+    project_desc = input("Project description (press enter to leave empty) > ").strip()
 
     user = utils.get_init_data.MetaData()
     date, meta = user.get_data()
