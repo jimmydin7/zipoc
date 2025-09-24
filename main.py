@@ -1,39 +1,8 @@
-import utils.get_init_data
-from pathlib import Path
-import json
+from zipoc.cli import repository_init as zipoc_repository_init
 
-def repository_init():
-    repo_path = Path(".zipo")
-    if repo_path.exists():
-        print("Zipo repository already initialized!")
-        return
-    
-    repo_path.mkdir()
-
-    project_name = input("Project name > ").strip().replace(" ", "-")
-    project_desc = input("Project description (press enter to leave empty) > ").strip()
-
-    user = utils.get_init_data.MetaData()
-    date, meta = user.get_data()
-
-    config = {
-        "project_name": project_name,
-        "project_description": project_desc,
-        "created_at": date,
-        "user_machine": meta
-    }
-
-    config_path = repo_path / "config.json"
-    with open(config_path, "w") as f:
-        json.dump(config, f, indent=4)
-
-    print(f"Zipo repository initialized in {repo_path.resolve()}")
-    print(f"Project name: {project_name or 'N/A'}")
-    print(f"Description: {project_desc or 'N/A'}")
-    print(f"Created at: {date}")
-    print(f"User@Machine: {meta}")
-
+def main():
+    return zipoc_repository_init()
 
 
 if __name__ == "__main__":
-    repository_init()
+    main()

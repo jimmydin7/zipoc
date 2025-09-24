@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zipoc"
+version = "0.1.0"
+description = "Full-local version control system with web UI"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [
+  { name = "Jim Dinias", email = "jim@jimdinias.dev" }
+]
+keywords = ["initializer", "scaffold", "metadata", "cli"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/jimmydin7/zipoc"
+Repository = "https://github.com/jimmydin7/zipoc"
+
+[project.scripts]
+zipoc = "zipoc.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["zipoc*"]
