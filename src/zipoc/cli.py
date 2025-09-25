@@ -37,6 +37,8 @@ def repository_init():
     print(f"User@Machine: {meta}")
     return 0
 
+def repository_delete():
+    return 0
 
 def show_help():
 
@@ -55,6 +57,7 @@ zipoc delete
 zipoc view
 ⤷ View all commit & change history on a localhost web UI!
 """)
+    return 0
 
 def commit_command():
 
@@ -75,6 +78,8 @@ def main():
         return commit_command()
     if cmd == "init" or cmd == "initialize":
         return repository_init()
+    if cmd == "delete":
+        return repository_delete()
 
     print(f"Unknown command: {cmd}\n Use 'zipoc --help' for more information.")
     return show_help()
