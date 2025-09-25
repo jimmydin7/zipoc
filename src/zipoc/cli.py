@@ -2,6 +2,7 @@ import sys
 from .repo import initialize as repo_control
 from zipoc.utils.get_init_data import MetaData
 from .utils import help_cmd as h
+from .ui import app
 
 
 
@@ -27,6 +28,8 @@ def main():
         return repo_control.repository_init()
     if cmd == "delete":
         return repo_control.repository_delete()
+    if cmd == "view":
+        return app.run_server()
 
     print(f"Unknown command: {cmd}\n Use 'zipoc --help' for more information.")
     return h.show_help()
