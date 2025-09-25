@@ -1,5 +1,6 @@
 import sys
-from .repo import initialize as repo_control
+from .repo import initialize as init
+from .repo import delete as delete
 from zipoc.utils.get_init_data import MetaData
 from .utils import help_cmd as h
 from .ui import app
@@ -25,9 +26,9 @@ def main():
     if cmd == "commit":
         return commit_command()
     if cmd == "init" or cmd == "initialize":
-        return repo_control.repository_init()
+        return init.repository_init()
     if cmd == "delete":
-        return repo_control.repository_delete()
+        return delete.repository_delete()
     if cmd == "view":
         return app.run_server()
 
