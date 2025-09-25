@@ -40,12 +40,12 @@ def repository_init():
 
 def repository_delete():
     repo_path = Path(".zipoc")
-    if repo_path.exists():
+    if not repo_path.exists():
         print("Zipoc repository hasn't been initialized!")
         return 0
     confirm = input('Are you sure? Deleting a repository is irreversible and your data will be lost! (y/n)')
     if confirm == 'n':
-        print("Zipoc repository deletion cancelled!")
+        print("There isn't a zipoc repository here!")
         return 0
     else:
         try:
