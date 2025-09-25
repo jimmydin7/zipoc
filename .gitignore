@@ -7,22 +7,19 @@ venv/
 env/
 ENV/
 
-# Packaging / build artifacts
 build/
 dist/
 *.egg-info/
 .eggs/
 
-# Testing / coverage
 .pytest_cache/
 .coverage*
 htmlcov/
 
-# Type checking / tooling
 .mypy_cache/
 .ruff_cache/
 
-# Editors / OS files
+
 .vscode/
 .idea/
 .DS_Store

@@ -40,9 +40,21 @@ def repository_init():
 
 def show_help():
 
-    print("uwu help")
-    return 0
-
+    print("""
+zipoc - help menu
+          
+zipoc init
+⤷ Initialize a new zipoc repository
+          
+zipoc commit
+⤷ Make a commit on the current repository
+          
+zipoc delete
+⤷ Delete the current repository
+          
+zipoc view
+⤷ View all commit & change history on a localhost web UI!
+""")
 
 def commit_command():
 
