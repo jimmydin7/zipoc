@@ -1,6 +1,7 @@
 from pathlib import Path
 import json
 import sys
+import os
 
 from zipoc.utils.get_init_data import MetaData
 
@@ -38,6 +39,12 @@ def repository_init():
     return 0
 
 def repository_delete():
+    repo_path = Path(".zipoc")
+    if repo_path.exists():
+        print("Zipoc repository hasn't been initialized!")
+        return 0
+    os.remove(repo_path)
+    
     return 0
 
 def show_help():
