@@ -19,6 +19,9 @@ classifiers = [
   "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
 ]
+dependencies = [
+  "Flask>=2.0",
+]
 
 [project.urls]
 Homepage = "https://github.com/jimmydin7/zipoc"

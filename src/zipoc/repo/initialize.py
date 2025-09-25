@@ -1,6 +1,7 @@
 import shutil
 import json
 from pathlib import Path
+from zipoc.utils.get_init_data import MetaData
 
 def repository_init():
     repo_path = Path(".zipoc")
@@ -44,7 +45,7 @@ def repository_delete():
         "Are you sure? Deleting a repository is irreversible and your data will be lost! (y/n) > "
     ).strip().lower()
 
-    if confirm != "y" or confirm != "":
+    if confirm not in ("y", "yes"):
         print("Aborted deletion.")
         return 0
 
