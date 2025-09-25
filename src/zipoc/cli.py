@@ -45,10 +45,10 @@ def repository_delete():
         return 0
 
     confirm = input(
-        "Are you sure? Deleting a repository is irreversible and your data will be lost! (y/n) "
+        "Are you sure? Deleting a repository is irreversible and your data will be lost! (y/n) > "
     ).strip().lower()
 
-    if confirm != "y":
+    if confirm != "y" or confirm != "":
         print("Aborted deletion.")
         return 0
 
