@@ -3,7 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <title>Zipoc Repository Viewer</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+    }
+    .navbar {
+      background-color: #222;
+      color: white;
+      padding: 1em 2em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 800px;
+      margin: 2em auto;
+      background: white;
+      padding: 2em;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .project-info {
+      margin-bottom: 2em;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 1em;
+    }
+    .project-info h2 {
+      margin-top: 0;
+    }
+    .commit {
+      border-bottom: 1px solid #eee;
+      padding: 1em 0;
+    }
+    .commit:last-child {
+      border-bottom: none;
+    }
+    .commit-number {
+      font-weight: bold;
+      color: #333;
+    }
+    .commit-hash {
+      font-family: monospace;
+      color: #666;
+    }
+  </style>
 </head>
 <body>
 
