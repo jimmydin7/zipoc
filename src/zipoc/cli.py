@@ -25,11 +25,14 @@ def main():
         return init.repository_init()
     if cmd == "delete":
         return delete.repository_delete()
+
     if cmd == "view":
-        if "--terminal" in cmd:
+        if "--terminal" in args:
             print("starting terminal view!")
-        elif "--web" in cmd:
+
+        elif "--web" in args:
             print("starting web ui view!")
+            return app.run_server()
         else:
             print("""Invalid arguments. Please use
 zipoc view --terminal 
@@ -38,8 +41,8 @@ zipoc view --terminal
 zipoc view --web
 ⤷ View commits and data on a localhosted web UI          
                   """)
-            return app.run_server()
-
+            return
+    
     print(f"Unknown command: {cmd}\n Use 'zipoc --help' for more information.")
     return h.show_help()
 

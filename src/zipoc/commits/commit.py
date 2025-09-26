@@ -28,7 +28,7 @@ def copy_project_files(src_dir, dest_dir, ignore_patterns=None):
             shutil.copy2(item, dest_item)
 
 def create_commit_metadata(commit_message):
-    """Create metadata for the commit."""
+
     meta = MetaData()
     date, user_machine = meta.get_data()
     
