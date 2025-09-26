@@ -13,6 +13,7 @@ A lightweight, local versioning tool for any project. Zipoc lets you initialize 
 ## Installation
 
 You can install Zipoc directly from pip
+( NOT RELEASED YET!)
 
 ```bash
 # from the project root
