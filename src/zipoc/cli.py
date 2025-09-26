@@ -3,7 +3,7 @@ from .repo import initialize as init
 from .repo import delete
 from .commits import commit
 from .utils import help_cmd as h
-from .ui import app
+from .web_ui import app as wapp
 
 
 
@@ -32,7 +32,7 @@ def main():
 
         elif "--web" in args:
             print("starting web ui view!")
-            return app.run_server()
+            return wapp.run_server()
         else:
             print("""Invalid arguments. Please use
 zipoc view --terminal 
