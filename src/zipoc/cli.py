@@ -31,17 +31,16 @@ def main():
             print("starting terminal view!")
 
         elif "--web" in args:
-            print("starting web ui view!")
             return wapp.run_server()
-            print("""Invalid arguments. Please use
+            
+            
+    
+    print("""Invalid arguments. Please use
 zipoc view --terminal 
 ⤷ View commits and data on your terminal
                   
 zipoc view --web
 ⤷ View commits and data on a localhosted web UI          
                   """)
-            return
-    
-    print(f"Unknown command: {cmd}\n Use 'zipoc --help' for more information.")
-    return h.show_help()
+    return 
 
