@@ -1,17 +1,13 @@
 import sys
 from .repo import initialize as init
-from .repo import delete as delete
-from zipoc.utils.get_init_data import MetaData
+from .repo import delete
+from .commits import commit
 from .utils import help_cmd as h
 from .ui import app
 
 
 
 
-def commit_command():
-
-    print("doggy")
-    return 0
 
 
 def main():
@@ -24,13 +20,25 @@ def main():
     if cmd in {"help", "-h", "--help"}:
         return h.show_help()
     if cmd == "commit":
-        return commit_command()
+        return commit.commit_command()
     if cmd == "init" or cmd == "initialize":
         return init.repository_init()
     if cmd == "delete":
         return delete.repository_delete()
     if cmd == "view":
-        return app.run_server()
+        if "--terminal" in cmd:
+            print("starting terminal view!")
+        elif "--web" in cmd:
+            print("starting web ui view!")
+        else:
+            print("""Invalid arguments. Please use
+zipoc view --terminal 
+⤷ View commits and data on your terminal
+                  
+zipoc view --web
+⤷ View commits and data on a localhosted web UI          
+                  """)
+            return app.run_server()
 
     print(f"Unknown command: {cmd}\n Use 'zipoc --help' for more information.")
     return h.show_help()
