@@ -33,7 +33,6 @@ def main():
         elif "--web" in args:
             print("starting web ui view!")
             return wapp.run_server()
-        else:
             print("""Invalid arguments. Please use
 zipoc view --terminal 
 ⤷ View commits and data on your terminal
