@@ -53,6 +53,11 @@
       font-family: monospace;
       color: #666;
     }
+    .empty-state {
+      color: #666;
+      text-align: center;
+      padding: 2em 0;
+    }
   </style>
 </head>
 <body>
@@ -63,37 +68,35 @@
   </div>
 
   <div class="container">
-    <div class="project-info">
-      <h2>zipoc-demo</h2>
-      <p>A minimal Git-like system</p>
-      <p><strong>Created at:</strong> 2025-09-26 15:42:10</p>
-      <p><strong>User@Machine:</strong> jimmy@penteli</p>
-      <p><strong>Total Commits:</strong> 3</p>
-    </div>
+    {% if is_repo %}
+      <div class="project-info">
+        <h2>{{ project.project_name }}</h2>
+        {% if project.project_description %}
+          <p>{{ project.project_description }}</p>
+        {% endif %}
+        {% if project.created_at %}<p><strong>Created at:</strong> {{ project.created_at }}</p>{% endif %}
+        {% if project.user_machine %}<p><strong>User@Machine:</strong> {{ project.user_machine }}</p>{% endif %}
+        <p><strong>Total Commits:</strong> {{ total_commits }}</p>
+      </div>
 
-    <div class="commit">
-      <div class="commit-number">#1</div>
-      <div><strong>Message:</strong> Initial commit</div>
-      <div><strong>Timestamp:</strong> 2025-09-26 15:45:00</div>
-      <div><strong>Author:</strong> jimmy@penteli</div>
-      <div class="commit-hash"><strong>Hash:</strong> a1b2c3d</div>
-    </div>
-
-    <div class="commit">
-      <div class="commit-number">#2</div>
-      <div><strong>Message:</strong> Added commit logic</div>
-      <div><strong>Timestamp:</strong> 2025-09-26 16:00:00</div>
-      <div><strong>Author:</strong> jimmy@penteli</div>
-      <div class="commit-hash"><strong>Hash:</strong> d4e5f6g</div>
-    </div>
-
-    <div class="commit">
-      <div class="commit-number">#3</div>
-      <div><strong>Message:</strong> Improved metadata handling</div>
-      <div><strong>Timestamp:</strong> 2025-09-26 16:05:00</div>
-      <div><strong>Author:</strong> jimmy@penteli</div>
-      <div class="commit-hash"><strong>Hash:</strong> h7i8j9k</div>
-    </div>
+      {% if commits and commits|length > 0 %}
+        {% for c in commits %}
+          <div class="commit">
+            <div class="commit-number">#{{ c.number }}</div>
+            {% if c.message %}<div><strong>Message:</strong> {{ c.message }}</div>{% endif %}
+            {% if c.timestamp %}<div><strong>Timestamp:</strong> {{ c.timestamp }}</div>{% endif %}
+            {% if c.author %}<div><strong>Author:</strong> {{ c.author }}</div>{% endif %}
+            <div class="commit-hash"><strong>Hash:</strong> {{ c.hash }}</div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="empty-state">No commits yet. Create one with <code>zipoc commit</code>.</div>
+      {% endif %}
+    {% else %}
+      <div class="empty-state">
+        Not a Zipoc repository. Initialize with <code>zipoc init</code> and then create commits.
+      </div>
+    {% endif %}
   </div>
 
 </body>

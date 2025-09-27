@@ -27,13 +27,13 @@ def copy_project_files(src_dir, dest_dir, ignore_patterns=None):
         else:
             shutil.copy2(item, dest_item)
 
-def create_commit_metadata(commit_message):
+def create_commit_metadata(commit_message, commit_hash=None):
 
     meta = MetaData()
     date, user_machine = meta.get_data()
     
     return {
-        "commit_hash": generate_commit_hash(),
+        "commit_hash": commit_hash or generate_commit_hash(),
         "message": commit_message,
         "timestamp": date,
         "author": user_machine,
@@ -63,7 +63,7 @@ def commit_command():
         commit_dir = commits_dir / commit_hash
         
 
-        metadata = create_commit_metadata(commit_message)
+        metadata = create_commit_metadata(commit_message, commit_hash)
         
         
         (commit_dir / "files").mkdir(parents=True, exist_ok=True)
