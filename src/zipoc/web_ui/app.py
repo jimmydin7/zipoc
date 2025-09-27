@@ -52,6 +52,7 @@ def load_commits(repo_path: Path):
             "timestamp": meta.get("timestamp", ""),
             "author": meta.get("author", ""),
             "hash": commit_hash, #now being stored in commits json instead of just the folder name!
+            "cpath": "path-of-the-commit"
         })
     return commits
 

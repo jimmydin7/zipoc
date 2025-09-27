@@ -85,7 +85,10 @@
             <div class="commit-number">#{{ c.number }}</div>
             {% if c.message %}<div><strong>Message:</strong> {{ c.message }}</div>{% endif %}
             {% if c.timestamp %}<div><strong>Timestamp:</strong> {{ c.timestamp }}</div>{% endif %}
-            {% if c.author %}<div><strong>Author:</strong> {{ c.author }}</div>{% endif %}
+            {% if c.author %}<div><strong>Author:</strong> {{ c.author }}</div>
+            <a href="{{ c.cpath }}">Browse repository at this point</a>
+            {% endif %}
+            
             <div class="commit-hash"><strong>Hash:</strong> {{ c.hash }}</div>
           </div>
         {% endfor %}
