@@ -4,7 +4,7 @@ from .repo import delete
 from .commits import commit
 from .utils import help_cmd as h
 from .web_ui import app as wapp
-
+from .export import export_commit
 
 
 
