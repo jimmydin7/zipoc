@@ -4,7 +4,7 @@ from .repo import delete
 from .commits import commit
 from .utils import help_cmd as h
 from .web_ui import app as wapp
-from .export import export_commit
+from .export.export import export_commit
 
 
 
@@ -36,7 +36,7 @@ def main():
     if cmd == "export":
         commit_hash = sys.argv[1]
         print(f"Exporting commit ({commit_hash})")
-        export_commit(commit_hash)
+        return export_commit(commit_hash)
             
             
     
