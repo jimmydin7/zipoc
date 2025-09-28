@@ -1,5 +1,5 @@
-# Zipoc
-
+![Zipoc](https://hc-cdn.hel1.your-objectstorage.com/s/v3/6ca7924b99b512fc579ecaae572ba10a21175361_image.png)
+---
 A lightweight, local versioning tool for any project. Zipoc lets you initialize a repository, create commits of your working directory, and view them in the terminal or a simple web UI.
 
 ## Features
