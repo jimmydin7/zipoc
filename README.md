@@ -66,7 +66,7 @@ Start the viewer. View commits and other data about your repository in either a 
 # Web UI
 zipoc view --web
 
-# Terminal UI
+# Terminal UI (In the near future...)
 zipoc view --terminal
 ```
 
