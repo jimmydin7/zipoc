@@ -32,6 +32,10 @@ def main():
 
         elif "--web" in args:
             return wapp.run_server()
+    
+    if cmd == "export":
+        commit_hash = sys.argv[1]
+        print(f"Exporting commit ({commit_hash})")
             
             
     
