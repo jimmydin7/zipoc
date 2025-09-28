@@ -16,10 +16,10 @@ A lightweight, local versioning tool for any project. Zipoc lets you initialize 
 ## Installation
 
 You can install Zipoc directly from pip
-( NOT RELEASED YET!)
+
 
 ```bash
-# from the project root
+# ( NOT RELEASED YET!)
 python -m pip install zipoc
 ```
 
@@ -31,7 +31,7 @@ Zipoc exposes a simple CLI via `zipoc <command>`
 ### Help
 
 ```bash
-zipoc --help
+zipoc help
 ```
 
 ### Initialize a repository
