@@ -36,6 +36,7 @@ def main():
     if cmd == "export":
         commit_hash = sys.argv[1]
         print(f"Exporting commit ({commit_hash})")
+        export_commit(commit_hash)
             
             
     
