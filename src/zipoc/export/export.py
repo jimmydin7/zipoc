@@ -3,6 +3,9 @@ import shutil
 from datetime import date
 from zipoc.logs.logger import log
 
+def get_export_name(commit_hash: str) -> str:
+    return f"{date.today()}-{commit_hash}"
+
 def export_commit(commit_hash):
     repo_path = Path(".zipoc")
     commits_dir = repo_path / "commits"
@@ -22,9 +25,15 @@ def export_commit(commit_hash):
     destination_folder.mkdir(parents=True, exist_ok=True)
 
     shutil.copytree(src_commit_path, destination_folder, dirs_exist_ok=True)
-    full_path = destination_folder.resolve()
-    log("info", f"Exported commit to {full_path}!")
 
-def get_export_name(commit_hash):
-    today = date.today().strftime("%Y-%m-%d")
-    return f"zipoc-{commit_hash}-{today}"
+ 
+    zip_path = shutil.make_archive(
+        base_name=str(destination_folder), 
+        format="zip",
+        root_dir=str(destination_folder.parent),
+        base_dir=export_name
+    )
+
+    shutil.rmtree(destination_folder)
+
+    log("info", f"Exported commit zipped at {Path(zip_path).resolve()}!")
