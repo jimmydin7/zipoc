@@ -35,7 +35,7 @@ def main():
             return wapp.run_server()
     
     if cmd == "export":
-        commit_hash = sys.argv[1]
+        commit_hash = sys.argv[2]
         log("info", f"Exporting commit ({commit_hash})")
         return export_commit(commit_hash)
             
