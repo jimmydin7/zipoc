@@ -12,6 +12,7 @@ A lightweight, local versioning tool for any project. Zipoc lets you initialize 
 - [ ] View commits in the terminal
 - [ ] Revert working directory to old commit from hash
 - [ ] Browse files on specific commit through web UI
+- [ ] AI overview between commits
 
 
 ## Installation
