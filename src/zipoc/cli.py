@@ -41,7 +41,7 @@ def main():
             
             
     
-    log("error", """Invalid arguments. Please use
+    log("warning", """Invalid arguments. Please use
 zipoc view --terminal 
 ⤷ View commit and data on your terminal
                   
