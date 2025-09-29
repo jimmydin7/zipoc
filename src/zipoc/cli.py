@@ -35,7 +35,11 @@ def main():
             return wapp.run_server()
     
     if cmd == "export":
-        commit_hash = sys.argv[2]
+        try:
+            commit_hash = sys.argv[2]
+        except Exception:
+            log("warning", f"Couldn't find commit ({commit_hash})")
+            log("error", f"Aborting export!")
         log("info", f"Exporting commit ({commit_hash})")
         return export_commit(commit_hash)
             
