@@ -1,11 +1,12 @@
 import shutil
 from pathlib import Path
+from zipoc.logs.logger import log
 
 
 def repository_delete():
     repo_path = Path(".zipoc")
     if not repo_path.exists():
-        print("Zipoc repository hasn't been initialized!")
+        log("warning", "Zipoc repository hasn't been initialized!")
         return 0
 
     confirm = input(
@@ -13,13 +14,13 @@ def repository_delete():
     ).strip().lower()
 
     if confirm not in ("y", "yes"):
-        print("Aborted deletion.")
+        log("info", "Aborted deletion.")
         return 0
 
     try:
         shutil.rmtree(repo_path)  
-        print("Successfully deleted zipoc repository!")
+        log("info", "Successfully deleted zipoc repository!")
         return 0
     except Exception as e:
-        print(f"Error while trying to delete zipoc repository: {e}")
+        log("error", f"Error while trying to delete zipoc repository: {e}")
         return 0

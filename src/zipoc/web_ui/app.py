@@ -2,6 +2,7 @@ from flask import Flask, render_template
 import logging
 from pathlib import Path
 import json
+from zipoc.logs.logger import log as zlog
 
 app = Flask(__name__)
 
@@ -66,12 +67,12 @@ def home():
 
 def run_server():
 
-    log = logging.getLogger('werkzeug')
-    log.setLevel(logging.ERROR)
+    wlog = logging.getLogger('werkzeug')
+    wlog.setLevel(logging.ERROR)
 
-    print("Starting Zipoc viewer...\nVisit http://localhost:8080 in your browser.")
+    zlog("info", "Starting Zipoc viewer...\nVisit http://localhost:8080 in your browser.")
     app.run(port=8080, debug=False, use_reloader=False)
-    print("Zipoc viewer running at http://localhost:8080")
+    zlog("info", "Zipoc viewer running at http://localhost:8080")
 
 if __name__ == "__main__":
     run_server()

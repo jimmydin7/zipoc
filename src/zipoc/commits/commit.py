@@ -6,6 +6,7 @@ from zipoc.hash.generate_hash import generate_commit_hash
 from zipoc.utils.get_init_data import MetaData
 import sys
 import os
+from zipoc.logs.logger import log
 
 def copy_project_files(src_dir, dest_dir, ignore_patterns=None):
     
@@ -44,14 +45,14 @@ def commit_command():
     
     repo_path = Path(".zipoc")
     if not repo_path.exists():
-        print("Error: Not a zipoc repository. Run 'zipoc init' first.")
+        log("error", "Not a zipoc repository. Run 'zipoc init' first.")
         return 1
     
     
     try:
         commit_message = input("Enter commit message: ").strip()
         if not commit_message:
-            print("Error: Commit message cannot be empty.")
+            log("error", "Commit message cannot be empty.")
             return 1
             
         
@@ -76,13 +77,13 @@ def commit_command():
         with open(commit_dir / "metadata.json", "w", encoding="utf-8") as f:
             json.dump(metadata, f, indent=4)
             
-        print(f"Commit created: {commit_hash}")
-        print(f"Message: {commit_message}")
+        log("info", f"Commit created: {commit_hash}")
+        log("info", f"Message: {commit_message}")
         return 0
         
     except KeyboardInterrupt:
-        print("\nCommit aborted by user.")
+        log("warning", "Commit aborted by user.")
         return 1
     except Exception as e:
-        print(f"Error creating commit: {str(e)}")
+        log("error", f"Error creating commit: {str(e)}")
         return 1

@@ -5,6 +5,7 @@ from .commits import commit
 from .utils import help_cmd as h
 from .web_ui import app as wapp
 from .export.export import export_commit
+from zipoc.logs.logger import log
 
 
 
@@ -28,21 +29,21 @@ def main():
 
     if cmd == "view":
         if "--terminal" in args:
-            print("starting terminal view!")
+            log("info", "starting terminal view!")
 
         elif "--web" in args:
             return wapp.run_server()
     
     if cmd == "export":
         commit_hash = sys.argv[1]
-        print(f"Exporting commit ({commit_hash})")
+        log("info", f"Exporting commit ({commit_hash})")
         return export_commit(commit_hash)
             
             
     
-    print("""Invalid arguments. Please use
+    log("error", """Invalid arguments. Please use
 zipoc view --terminal 
-⤷ View commits and data on your terminal
+⤷ View commit and data on your terminal
                   
 zipoc view --web
 ⤷ View commits and data on a localhosted web UI          

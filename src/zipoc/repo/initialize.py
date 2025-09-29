@@ -1,11 +1,12 @@
 from pathlib import Path
 import json
 from zipoc.utils.get_init_data import MetaData
+from zipoc.logs.logger import log
 
 def repository_init():
     repo_path = Path(".zipoc")
     if repo_path.exists():
-        print("Zipoc repository already initialized!")
+        log("warning", "Zipoc repository already initialized!")
         return 0
 
     repo_path.mkdir()
@@ -27,9 +28,9 @@ def repository_init():
     with open(config_path, "w", encoding="utf-8") as f:
         json.dump(config, f, indent=4)
 
-    print(f"Zipoc repository initialized in {repo_path.resolve()}")
-    print(f"Project name: {project_name or 'N/A'}")
-    print(f"Description: {project_desc or 'N/A'}")
-    print(f"Created at: {date}")
-    print(f"User@Machine: {meta}")
+    log("info", f"Zipoc repository initialized in {repo_path.resolve()}")
+    log("info", f"Project name: {project_name or 'N/A'}")
+    log("info", f"Description: {project_desc or 'N/A'}")
+    log("info", f"Created at: {date}")
+    log("info", f"User@Machine: {meta}")
     return 0

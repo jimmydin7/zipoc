@@ -1,6 +1,7 @@
 from pathlib import Path
 import shutil
 from datetime import date
+from zipoc.logs.logger import log
 
 def export_commit(commit_hash):
     repo_path = Path(".zipoc")
@@ -8,10 +9,10 @@ def export_commit(commit_hash):
     src_commit_path = commits_dir / commit_hash
 
     if not src_commit_path.exists():
-        print(f"Commit {commit_hash} not found!")
+        log("error", f"Commit {commit_hash} not found!")
         return
 
-    print(f"Located commit at {src_commit_path}!")
+    log("info", f"Located commit at {src_commit_path}!")
 
     export_name = get_export_name(commit_hash)
     exports_folder = repo_path / "exports"
@@ -21,7 +22,7 @@ def export_commit(commit_hash):
     destination_folder.mkdir(parents=True, exist_ok=True)
 
     shutil.copytree(src_commit_path, destination_folder, dirs_exist_ok=True)
-    print(f"Exported commit to {destination_folder}!")
+    log("info", f"Exported commit to {destination_folder}!")
 
 def get_export_name(commit_hash):
     today = date.today().strftime("%Y-%m-%d")

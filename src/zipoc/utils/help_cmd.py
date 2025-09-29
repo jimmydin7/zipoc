@@ -1,6 +1,8 @@
+from zipoc.logs.logger import log
+
 def show_help():
 
-    print("""
+    log("info", """
 zipoc - help menu
           
 zipoc init
