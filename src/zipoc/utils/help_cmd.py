@@ -21,6 +21,12 @@ zipoc view
 |    ⤷ view in a terminal version
 |         
 |  --web  
-|    ⤷ view in a localhosted web ui        
+|    ⤷ view in a localhosted web ui
+
+        
+----
+Version: 0.1.0
+Zipoc is open-source! Star the repository here! https://github.com/jimmydin7/zipoc
+----         
 """)
     return 0

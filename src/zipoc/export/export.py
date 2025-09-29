@@ -8,31 +8,43 @@ def get_export_name(commit_hash: str) -> str:
 
 def export_commit(commit_hash):
     repo_path = Path(".zipoc")
-    commits_dir = repo_path / "commits"
-    src_commit_path = commits_dir / commit_hash
-
-    if not src_commit_path.exists():
-        log("error", f"Commit {commit_hash} not found!")
-        return
-
-    log("info", f"Located commit at {src_commit_path}!")
-
-    export_name = get_export_name(commit_hash)
     exports_folder = repo_path / "exports"
+    export_name = get_export_name(commit_hash)
     destination_folder = exports_folder / export_name
-
 
     destination_folder.mkdir(parents=True, exist_ok=True)
 
-    shutil.copytree(src_commit_path, destination_folder, dirs_exist_ok=True)
+    if commit_hash == "current":
+        log("info", "Exporting current directory...")
 
- 
+        for item in Path(".").iterdir():
+            if item.name == ".zipoc":
+                continue
+
+            dest = destination_folder / item.name
+            if item.is_dir():
+                shutil.copytree(item, dest, dirs_exist_ok=True)
+            else:
+                shutil.copy2(item, dest)
+    else:
+        commits_dir = repo_path / "commits"
+        src_commit_path = commits_dir / commit_hash
+
+        if not src_commit_path.exists():
+            log("error", f"Commit {commit_hash} not found!")
+            return
+
+        log("info", f"Located commit at {src_commit_path}!")
+        shutil.copytree(src_commit_path, destination_folder, dirs_exist_ok=True)
+
+
     zip_path = shutil.make_archive(
-        base_name=str(destination_folder), 
+        base_name=str(destination_folder),
         format="zip",
         root_dir=str(destination_folder.parent),
         base_dir=export_name
     )
+
 
     shutil.rmtree(destination_folder)
 
