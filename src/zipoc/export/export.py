@@ -22,7 +22,8 @@ def export_commit(commit_hash):
     destination_folder.mkdir(parents=True, exist_ok=True)
 
     shutil.copytree(src_commit_path, destination_folder, dirs_exist_ok=True)
-    log("info", f"Exported commit to {destination_folder}!")
+    full_path = destination_folder.resolve()
+    log("info", f"Exported commit to {full_path}!")
 
 def get_export_name(commit_hash):
     today = date.today().strftime("%Y-%m-%d")
