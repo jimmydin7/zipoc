@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.logo img {
+  height: 68px;
+}
+.logo-text {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+}
+.logo-text span {
+  color: #7a3cff;
+}
+nav a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: #7a3cff;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+.version {
+  text-align: center;
+  margin-top: 120px;
+  font-size: 1.5rem;
+  color: #999;
+}

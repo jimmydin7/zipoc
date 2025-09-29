@@ -3,107 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zipoc Docs</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <style>
-    body {
-      background-color: #f9f7ff;
-      font-family: 'Segoe UI', sans-serif;
-    }
-    .zipoc-logo {
-      font-size: 4rem;
-      font-weight: bold;
-      color: #5f2eea;
-    }
-    .section-title {
-      font-size: 2.5rem;
-      margin-top: 2rem;
-      color: #333;
-    }
-    .code-block {
-      background-color: #eee;
-      padding: 1rem;
-      border-radius: 8px;
-      font-family: monospace;
-    }
-    .footer {
-      margin-top: 4rem;
-      padding: 2rem;
-      background-color: #5f2eea;
-      color: white;
-      text-align: center;
-    }
-    a {
-      color: #5f2eea;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <title>Zipoc v0.1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="container py-5">
-
-  <div class="text-center mb-5">
-    <div class="zipoc-logo">Zipoc</div>
-    <p class="lead">A lightweight, local versioning tool for any project.</p>
-    <a href="https://github.com/jimmydin7/zipoc" target="_blank" class="btn btn-outline-primary btn-lg">View on GitHub</a>
-  </div>
-
-  <h2 class="section-title">Features</h2>
-  <ul class="fs-4">
-    <li>Initialize a project repository in <code>.zipoc/</code></li>
-    <li>Create commits that snapshot your project files</li>
-    <li>Delete the repository</li>
-    <li>View commits via a web UI</li>
-    <li>Export commits from hash</li>
-    <li>View commits in the terminal</li>
-    <li>Revert working directory to old commit from hash</li>
-  </ul>
-
-  <h2 class="section-title"> Installation</h2>
-  <p class="fs-4">You can install Zipoc directly from pip:</p>
-  <div class="code-block fs-5">
-    # ( NOT RELEASED YET!)<br />
-    python -m pip install zipoc
-  </div>
-
-  <h2 class="section-title">Usage</h2>
-  <p class="fs-4">Zipoc exposes a simple CLI via <code>zipoc &lt;command&gt;</code></p>
-
-  <h3 class="mt-4 fs-3">Help</h3>
-  <div class="code-block fs-5">zipoc help</div>
-
-  <h3 class="mt-4 fs-3">Initialize a repository</h3>
-  <p class="fs-4">Creates a <code>.zipoc/</code> folder with a <code>config.json</code> that records project metadata.</p>
-  <div class="code-block fs-5">zipoc init</div>
-  <p class="fs-4">You’ll be asked for:</p>
-  <ul class="fs-4">
-    <li>Project name</li>
-    <li>Project description (optional)</li>
-  </ul>
-
-  <h3 class="mt-4 fs-3">Make a commit</h3>
-  <p class="fs-4">Creates a new commit under <code>.zipoc/commits/&lt;hash&gt;/</code> containing:</p>
-  <ul class="fs-4">
-    <li><code>metadata.json</code> with commit hash, message, timestamp, and author</li>
-    <li><code>files/</code> directory with a snapshot copy of your project files</li>
-  </ul>
-  <div class="code-block fs-5">zipoc commit</div>
-
-  <h3 class="mt-4 fs-3">View commits</h3>
-  <p class="fs-4">Start the viewer. View commits and other data about your repository in either a localhosted web UI or your terminal:</p>
-  <div class="code-block fs-5">
-    # Web UI<br />
-    zipoc view --web<br /><br />
-    # Terminal UI (In the near future...)<br />
-    zipoc view --terminal
-  </div>
-
-  <h3 class="mt-4 fs-3">Delete repository</h3>
-  <p class="fs-4">Removes the <code>.zipoc/</code> folder and all tracked data. This is irreversible.</p>
-  <div class="code-block fs-5">zipoc delete</div>
-
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/26ae6e45b7019b5fb0dd4a340ffe414222412d61_image.png" alt="Zipoc-v1" />
+    </div>
+    <nav>
+      <a href="#installation">Installation</a>
+      <a href="#commands">Commands</a>
+      <a href="https://github.com/jimmydin7/zipoc"><b>Github</b></a>
+    </nav>
+  </header>
 
 </body>
 </html>
