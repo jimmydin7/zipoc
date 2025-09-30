@@ -6,11 +6,13 @@ A lightweight, local versioning tool for any project. Zipoc lets you initialize 
 
 - [x] Initialize a project repository in `.zipoc/`
 - [x] Create commits that snapshot your project files
-- [x] Delete the repository
 - [x] View commits via a web UI
-- [ ] Export commits from hash
+- [X] Export commits from hash
+- [x] Delete the repository
 - [ ] View commits in the terminal
 - [ ] Revert working directory to old commit from hash
+- [ ] Browse files on specific commit through web UI
+- [ ] AI overview between commits
 
 
 ## Installation
