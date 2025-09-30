@@ -40,3 +40,71 @@ nav a {
   font-size: 1.5rem;
   color: #999;
 }
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 80px 60px;
+  gap: 40px;
+}
+
+.intro {
+  max-width: 600px;
+}
+
+.intro h1 {
+  font-size: 2.8rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.intro h1 span {
+  color: #7a3cff;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.features li {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.features li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #7a3cff;
+  font-weight: bold;
+}
+
+.microicons img {
+  max-width: 280px;
+  height: auto;
+}
+
+
+.arrow-accent {
+  position: absolute;
+  top: 160px;
+  left: 40px;
+  z-index: 0;
+  opacity: 0.2;
+}
+
+.arrow-accent img {
+  max-width: 300px;
+  height: auto;
+}
